@@ -7,11 +7,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css">
         <title>Marked.js</title>
         <script>
-            var storage = window.localStorage;
             function preview() { $m.innerHTML = marked.parse($s.value); }
-            function save() { storage.setItem("md", $s.value); }
-            setInterval("preview()","200");
-            setInterval("save()","1000");
+            function save() { window.localStorage.setItem("md", $s.value); }
+            $s.value = window.localStorage.getItem("md");
+            setInterval("preview()", "100");
+            setInterval("save()", "200");
         </script>
     </head>
     <body style="margin:0;">
