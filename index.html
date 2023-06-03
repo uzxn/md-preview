@@ -9,6 +9,7 @@
         <script>
             function preview() { $m.innerHTML = marked.parse($s.value); }
             function save() { window.localStorage.setItem("md", $s.value); }
+            window.localStorage.setItem("md", $s.value);
             $s.value = window.localStorage.getItem("md");
             setInterval("preview()", "100");
             setInterval("save()", "200");
