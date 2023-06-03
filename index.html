@@ -7,9 +7,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-light.min.css">
         <title>Marked.js</title>
         <script>
-            function read_storage() { $s.value = window.localStorage.getItem("md"); setInterval("save()", "200"); }
             function preview() { $m.innerHTML = marked.parse($s.value); }
             function save() { window.localStorage.setItem("md", $s.value); }
+            $s.value = window.localStorage.getItem("md");
+            setInterval("save()", "200");
             setInterval("preview()", "100");
         </script>
     </head>
@@ -19,7 +20,6 @@
                 <textarea id="$s" autofocus rows="9999" style="width:100%;"></textarea>
             </div>
             <div style="padding:1%; width:48%; height=100%; float:right;">
-                <button onclick="read_storage()" style="position:fixed; right:1%;">Read Storage</button>
                 <div id="$m" class="markdown-body" style="width:100%;"></div>
             </div>
         </div>
